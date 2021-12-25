@@ -35,3 +35,10 @@ PYTHONPATH=. python dataprocess/process.py --dataset_name ptb
 # SG_NS_Loader
 PYTHONPATH=. python loaders/SG_NS_Loader.py
 ```
+
+* for module
+
+```shell
+# SG_NS_Module
+PYTHONPATH=. python modules/SG_NS_Module.py
+```
