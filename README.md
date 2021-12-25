@@ -17,3 +17,12 @@ Models:
 * `model4 (DONE)`: Skip-Gram with Negative-Sampling
 * `model5 (TODO)`: FastText
 * `model6 (TODO)`: Glove
+
+### Data Process
+
+```shell
+# download dataset text8
+PYTHONPATH=. python dataprocess/process.py --dataset_name text8
+# download dataset ptb
+PYTHONPATH=. python dataprocess/process.py --dataset_name ptb
+```
