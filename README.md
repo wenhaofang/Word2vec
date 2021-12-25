@@ -26,3 +26,12 @@ PYTHONPATH=. python dataprocess/process.py --dataset_name text8
 # download dataset ptb
 PYTHONPATH=. python dataprocess/process.py --dataset_name ptb
 ```
+
+### Unit Test
+
+* for loader
+
+```shell
+# SG_NS_Loader
+PYTHONPATH=. python loaders/SG_NS_Loader.py
+```
