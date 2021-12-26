@@ -32,8 +32,12 @@ PYTHONPATH=. python dataprocess/process.py --dataset_name ptb
 * for loader
 
 ```shell
+# CBOW_HS_Loader
+PYTHONPATH=. python loaders/CBOW_HS_Loader.py
 # CBOW_NS_Loader
 PYTHONPATH=. python loaders/CBOW_NS_Loader.py
+# SG_HS_Loader
+PYTHONPATH=. python loaders/SG_HS_Loader.py
 # SG_NS_Loader
 PYTHONPATH=. python loaders/SG_NS_Loader.py
 ```
@@ -41,8 +45,12 @@ PYTHONPATH=. python loaders/SG_NS_Loader.py
 * for module
 
 ```shell
-# CBOW_NS_Module
+# CBOW_HS_Module
+PYTHONPATH=. python modules/CBOW_HS_Module.py
+# CBOW_NS_Module (the same as CBOW_HS_Module)
 PYTHONPATH=. python modules/CBOW_NS_Module.py
-# SG_NS_Module
+# SG_HS_Module
+PYTHONPATH=. python modules/SG_HS_Module.py
+# SG_NS_Module (the same as SG_HS_Module)
 PYTHONPATH=. python modules/SG_NS_Module.py
 ```
