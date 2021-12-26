@@ -54,3 +54,37 @@ PYTHONPATH=. python modules/SG_HS_Module.py
 # SG_NS_Module (the same as SG_HS_Module)
 PYTHONPATH=. python modules/SG_NS_Module.py
 ```
+
+# Main Process
+
+```shell
+PYTHONPATH=. python main.py
+```
+
+You can change the config either in the command line or in the file `utils/parser.py`
+
+Here are the examples for each module:
+
+```shell
+# CBOW_HS model
+PYTHONPATH=. python main.py --module_type CBOW_HS --dataset_name text8
+PYTHONPATH=. python main.py --module_type CBOW_HS --dataset_name ptb
+```
+
+```shell
+# CBOW_NS model
+PYTHONPATH=. python main.py --module_type CBOW_NS --dataset_name text8
+PYTHONPATH=. python main.py --module_type CBOW_NS --dataset_name ptb
+```
+
+```shell
+# SG_HS model
+PYTHONPATH=. python main.py --module_type SG_HS --dataset_name text8
+PYTHONPATH=. python main.py --module_type SG_HS --dataset_name ptb
+```
+
+```shell
+# SG_NS model
+PYTHONPATH=. python main.py --module_type SG_NS --dataset_name text8
+PYTHONPATH=. python main.py --module_type SG_NS --dataset_name ptb
+```
