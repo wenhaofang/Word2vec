@@ -8,8 +8,8 @@ class SG_HS_Module(nn.Module):
         self.device = device
         self.emb_size = emb_size
         self.emb_dims = emb_dims
-        self.u_embeddings = nn.Embedding(emb_size, emb_dims)
-        self.v_embeddings = nn.Embedding(emb_size, emb_dims)
+        self.u_embeddings = nn.Embedding(2 * emb_size - 1, emb_dims)
+        self.v_embeddings = nn.Embedding(2 * emb_size - 1, emb_dims)
 
     def forward(self, src_words, trg_words, wmasks, labels):
 
@@ -30,7 +30,7 @@ class SG_HS_Module(nn.Module):
         return loss
 
     def get_embeddings(self):
-        return self.u_embeddings.weight.data.cpu().numpy()
+        return self.u_embeddings.weight.data.cpu().numpy()[:self.emb_size]
 
 def get_module(option , vocab_size, device):
     return SG_HS_Module(vocab_size, option.emb_dim, device)

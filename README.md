@@ -47,11 +47,11 @@ PYTHONPATH=. python loaders/SG_NS_Loader.py
 ```shell
 # CBOW_HS_Module
 PYTHONPATH=. python modules/CBOW_HS_Module.py
-# CBOW_NS_Module (the same as CBOW_HS_Module)
+# CBOW_NS_Module
 PYTHONPATH=. python modules/CBOW_NS_Module.py
 # SG_HS_Module
 PYTHONPATH=. python modules/SG_HS_Module.py
-# SG_NS_Module (the same as SG_HS_Module)
+# SG_NS_Module
 PYTHONPATH=. python modules/SG_NS_Module.py
 ```
 
