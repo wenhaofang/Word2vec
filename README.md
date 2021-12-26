@@ -71,8 +71,16 @@ PYTHONPATH=. python modules/SG_NS_Module.py
 
 # Main Process
 
+* for train
+
 ```shell
-PYTHONPATH=. python main.py
+PYTHONPATH=. python main.py --mode train
+```
+
+* for predict
+
+```shell
+PYTHONPATH=. python main.py --mode predict
 ```
 
 You can change the config either in the command line or in the file `utils/parser.py`

@@ -5,6 +5,7 @@ def get_parser():
 
     # For Basic
     parser.add_argument('--name', default = '', help = '')
+    parser.add_argument('--mode', default = 'train', choices = ['train', 'predict'], help = '')
 
     # For Loader
     parser.add_argument('--sources_path', default = 'datasources', help = '')
@@ -14,8 +15,8 @@ def get_parser():
     parser.add_argument('--min_freq', type = int, default = 5, help = '')
     parser.add_argument('--max_numb', type = int, default = 1000000, help = '')
 
-    parser.add_argument('--max_window_size', type = int, default = 5, help = '')
-    parser.add_argument('--neg_sample_size', type = int, default = 5, help = '')
+    parser.add_argument('--max_window_size', type = int, default = 5, help = '')  # key param
+    parser.add_argument('--neg_sample_size', type = int, default = 15, help = '') # key param
 
     parser.add_argument('--use_cache', action = 'store_true', help = '')
 
@@ -25,10 +26,16 @@ def get_parser():
     parser.add_argument('--emb_dim', type = int, default = 100, help = '')
 
     # For Train
-    parser.add_argument('--batch_size', type = int, default = 64, help = '')
-    parser.add_argument('--num_epochs', type = int, default = 70, help = '')
+    parser.add_argument('--batch_size', type = int, default = 512, help = '') # key param
+    parser.add_argument('--num_epochs', type = int, default = 70, help = '')  # key param
 
     parser.add_argument('--learning_rate', type = float, default = 0.01, help = '')
+
+    # For Predict
+    parser.add_argument('--query_tok', default = 'chip', help = '')
+    parser.add_argument('--query_num', type = int, default = 3, help = '')
+
+    parser.add_argument('--checkpoint_path', default = '', help = '')
 
     return parser
 
