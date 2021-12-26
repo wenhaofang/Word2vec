@@ -7,7 +7,8 @@ def get_parser():
     parser.add_argument('--name', default = '', help = '')
 
     # For Loader
-    parser.add_argument('--dataset_path', default = 'dataset', help = '')
+    parser.add_argument('--sources_path', default = 'datasources', help = '')
+    parser.add_argument('--targets_path', default = 'datatargets', help = '')
     parser.add_argument('--dataset_name', default = 'ptb', choices = ['text8', 'ptb'], help = '')
 
     parser.add_argument('--min_freq', type = int, default = 5, help = '')
@@ -15,6 +16,8 @@ def get_parser():
 
     parser.add_argument('--max_window_size', type = int, default = 5, help = '')
     parser.add_argument('--neg_sample_size', type = int, default = 5, help = '')
+
+    parser.add_argument('--use_cache', action = 'store_true', help = '')
 
     # For Module
     parser.add_argument('--module_type', default = 'SG_NS', choices = ['CBOW_HS', 'CBOW_NS', 'SG_HS', 'SG_NS'], help = '')

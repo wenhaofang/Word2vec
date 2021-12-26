@@ -1,6 +1,7 @@
 import os
 import math
 import random
+import pickle as pkl
 
 from loaders.Huffman import HuffmanTree
 
@@ -11,12 +12,22 @@ class SG_HS_Loader():
         max_window_size,
         neg_sample_size, # no use
         batch_size,
-        file_path
+        datas_file_path,
+        cache_file_path,
+        use_cache
     ):
-        self.texts = self.read_srfile(file_path)
-        self.vocab = self.build_vocab(self.texts, min_freq, max_numb)
-        self.ids   = self.encode_text(self.texts)
-        self.datas = self.build_datas(self.ids, max_window_size, neg_sample_size)
+        if (
+            use_cache and
+            os.path.exists(cache_file_path)
+        ):
+            print('load data from cache !')
+            self.load_data_from_cache(cache_file_path)
+        else:
+            self.texts = self.read_srfile(datas_file_path)
+            self.vocab = self.build_vocab(self.texts, min_freq, max_numb)
+            self.ids   = self.encode_text(self.texts)
+            self.datas = self.build_datas(self.ids, max_window_size, neg_sample_size)
+            self.save_data_to_cache(cache_file_path)
 
         self.batch_size = batch_size
 
@@ -109,6 +120,20 @@ class SG_HS_Loader():
 
         return datas
 
+    def save_data_to_cache(self, file_path):
+        cache_data = {
+            'vocab': self.vocab,
+            'datas': self.datas
+        }
+        with open(file_path, 'wb') as cache_file:
+            pkl.dump(cache_data, cache_file)
+
+    def load_data_from_cache(self, file_path):
+        with open(file_path, 'rb') as cache_file:
+            cache_data = pkl.load(cache_file)
+        self.vocab = cache_data['vocab']
+        self.datas = cache_data['datas']
+
     def get_vocab_self(self):
         return self.vocab
 
@@ -163,7 +188,9 @@ def get_loader(option):
         option.max_window_size,
         option.neg_sample_size,
         option.batch_size,
-        os.path.join(option.dataset_path, option.dataset_name, file_name)
+        os.path.join(option.sources_path, option.dataset_name, file_name),
+        os.path.join(option.targets_path, 'SG_HS_' + option.dataset_name + '.cache'),
+        option.use_cache
     )
 
 if __name__ == '__main__':

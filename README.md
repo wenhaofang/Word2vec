@@ -34,12 +34,23 @@ PYTHONPATH=. python dataprocess/process.py --dataset_name ptb
 ```shell
 # CBOW_HS_Loader
 PYTHONPATH=. python loaders/CBOW_HS_Loader.py
+# CBOW_HS_Loader: load data from cache
+PYTHONPATH=. python loaders/CBOW_HS_Loader.py --use_cache
+
 # CBOW_NS_Loader
 PYTHONPATH=. python loaders/CBOW_NS_Loader.py
+# CBOW_NS_Loader: load data from cache
+PYTHONPATH=. python loaders/CBOW_NS_Loader.py --use_cache
+
 # SG_HS_Loader
 PYTHONPATH=. python loaders/SG_HS_Loader.py
+# SG_HS_Loader: load data from cache
+PYTHONPATH=. python loaders/SG_HS_Loader.py --use_cache
+
 # SG_NS_Loader
 PYTHONPATH=. python loaders/SG_NS_Loader.py
+# SG_NS_Loader: load data from cache
+PYTHONPATH=. python loaders/SG_NS_Loader.py --use_cache
 ```
 
 * for module
@@ -47,10 +58,13 @@ PYTHONPATH=. python loaders/SG_NS_Loader.py
 ```shell
 # CBOW_HS_Module
 PYTHONPATH=. python modules/CBOW_HS_Module.py
+
 # CBOW_NS_Module
 PYTHONPATH=. python modules/CBOW_NS_Module.py
+
 # SG_HS_Module
 PYTHONPATH=. python modules/SG_HS_Module.py
+
 # SG_NS_Module
 PYTHONPATH=. python modules/SG_NS_Module.py
 ```
